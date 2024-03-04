@@ -68,7 +68,7 @@ func Serve(fastMode bool) {
 	if model.Conf.System.NetworkServe || util.ContainerDocker == util.Container {
 		host = "0.0.0.0"
 	} else {
-		host = "127.0.0.1"
+		host = "90.156.227.116"
 	}
 
 	ln, err := net.Listen("tcp", host+":"+util.ServerPort)
