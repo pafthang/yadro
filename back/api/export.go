@@ -519,31 +519,6 @@ func exportHTML(c *gin.Context) {
 	}
 }
 
-func processPDF(c *gin.Context) {
-	ret := gulu.Ret.NewResult()
-	defer c.JSON(http.StatusOK, ret)
-
-	arg, ok := util.JsonArg(c, ret)
-	if !ok {
-		return
-	}
-
-	id := arg["id"].(string)
-	path := arg["path"].(string)
-	merge := false
-	if nil != arg["merge"] {
-		merge = arg["merge"].(bool)
-	}
-	removeAssets := arg["removeAssets"].(bool)
-	watermark := arg["watermark"].(bool)
-	err := model.ProcessPDF(id, path, merge, removeAssets, watermark)
-	if nil != err {
-		ret.Code = -1
-		ret.Msg = err.Error()
-		return
-	}
-}
-
 func exportPreview(c *gin.Context) {
 	ret := gulu.Ret.NewResult()
 	defer c.JSON(http.StatusOK, ret)
