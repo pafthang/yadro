@@ -1,0 +1,19 @@
+{
+    // Turns on "fix on save" for eslint and stylelint
+    "editor.codeActionsOnSave": ["source.fixAll.eslint", "source.fixAll.stylelint"],
+    // Sets prettier as the default formatter (for all file types, but this can be configured to your liking)
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // Allow prettier to apply formatting on file saves
+    "editor.formatOnSave": true,
+  
+    // Turn off line wrapping in markdown files. Allow prettier to handle all wrapping
+    "[markdown]": {
+      "editor.wordWrap": "off"
+    },
+  
+    // Only apply prettier formatting if there's a config file present
+    "prettier.requireConfig": true,
+  
+    // This one is important! Add "scss" to the list of style files that will be linted
+    "stylelint.validate": ["css", "less", "postcss", "scss"]
+  }
